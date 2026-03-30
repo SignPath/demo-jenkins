@@ -1,6 +1,12 @@
 pipeline {
   agent any
   stages {
+    stage('Checkout') {
+            steps {
+                git branch: 'master', url: 'https://github.com/octocat/Hello-World.git'
+            }
+        }
+
     stage('Build') {
       steps {
         echo 'This would build the artifact in build-output/unsigned/executable.exe'
