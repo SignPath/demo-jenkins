@@ -16,7 +16,8 @@ pipeline {
           outputArtifactPath: "build-output/signed/executable.exe",
           waitForCompletion: true,
           uploadAndDownloadRequestTimeoutInSeconds: 1200,
-          waitForCompletionTimeoutInSeconds: 3000
+          waitForCompletionTimeoutInSeconds: 3000,
+          inputArtifactRetrievalUrl: "https://github.com/SignPath/demo-jenkins/raw/refs/heads/master/build-output/unsigned/executable.exe"
         )
       }
     }
