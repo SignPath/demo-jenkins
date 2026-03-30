@@ -1,26 +1,11 @@
 pipeline {
   agent any
   stages {
-    stage('Checkout') {
-            steps {
-                git branch: 'master', url: 'https://github.com/octocat/Hello-World.git'
-            }
-        }
-
     stage('Build') {
       steps {
         echo 'This would build the artifact in build-output/unsigned/executable.exe'
       }
     }
-
-    stage('download source code') {
-            steps {
-                sh '''
-                    mkdir -p build-output/unsigned
-                    curl --output build-output/unsigned/executable.exe https://github.com/SignPath/demo-jenkins/raw/refs/heads/master/build-output/unsigned/executable.exe
-                '''
-            }
-        }
     stage('Sign with SignPath') {
       steps {
         submitSigningRequest(
