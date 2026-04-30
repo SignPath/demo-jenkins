@@ -17,5 +17,11 @@ pipeline {
         )
       }
     }
+
+    stage('Archive') {
+      steps {
+        archiveArtifacts artifacts: "build-output/signed/executable.exe", fingerprint: true
+      }
+    }
   }
 }
